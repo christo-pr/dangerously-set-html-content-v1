@@ -1,22 +1,21 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect, useRef } from 'react'
 
-import styles from './styles.css'
+function DangerouslySetHtmlContent(props) {
+  const { html } = props
+  const divRef = useRef(null)
 
-export default class ExampleComponent extends Component {
-  static propTypes = {
-    text: PropTypes.string
-  }
+  useEffect(() => {
+    if (!divRef.current) return
 
-  render() {
-    const {
-      text
-    } = this.props
+    const slotHtml = document.createRange().createContextualFragment(html) // Create a 'tiny' document and parse the html string
+    divRef.current.appendChild(slotHtml) // Append it so it can be executed
 
-    return (
-      <div className={styles.test}>
-        Example Component: {text}
-      </div>
-    )
-  }
+  }, [divRef])
+
+
+  return (
+    <div ref={divRef}></div>
+  )
 }
+
+export default DangerouslySetHtmlContent

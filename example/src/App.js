@@ -1,13 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react'
+import InnerHTML from 'dangerously-set-html-content'
 
-import ExampleComponent from 'dangerously-set-html-content'
+export default function App() {
 
-export default class App extends Component {
-  render () {
-    return (
-      <div>
-        <ExampleComponent text='Modern React component module' />
-      </div>
-    )
-  }
+  const html = `
+    <div>This wil be rendered</div>
+    <script>
+      alert('testing')
+    </script>
+
+  `
+
+  return (
+    <div>
+      <InnerHTML html={html} />
+    </div>
+  );
 }

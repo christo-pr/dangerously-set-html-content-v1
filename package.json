@@ -1,13 +1,14 @@
 {
   "name": "dangerously-set-html-content",
   "version": "1.0.0",
-  "description": "Render raw html on your own risk!",
+  "description": "Render raw html at your own risk!",
   "author": "christo-pr",
   "license": "MIT",
   "repository": "christo-pr/dangerously-set-html-content",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
+  "keywords": ["reactjs", "html", "innerHTML", "dangerouslySetInnerHtml"],
   "engines": {
     "node": ">=8",
     "npm": ">=5"
