@@ -17,7 +17,7 @@ React already have `dangerouslySetInnerHtml` prop to render raw html, and works 
 
 When you use `dangerouslySetInnerHtml` on a component, internally react is using the `innerHtml` property of the node to set the content, which for [safety purposes](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML#Security_considerations) doesn't execute any javascript.
 
-At the beginning this behavior seemed very odd to me (I mean the prop name contains the word `dangerously`, and also you need to pass an object with a `__html` propery, looks like they really encourage us not to use it), but it has totally sense now, but still doesn't solve my issue
+At the beginning this behavior seemed very odd to me (I mean the prop name contains the word `dangerously`, and also you need to pass an object with a `__html` propery, looks like they really encourage us not to use it), although has totally sense now, still doesn't solve my issue
 
 After a little bit of search I found that the `document` has something called [Range](https://developer.mozilla.org/en-US/docs/Web/API/Range), this API let you create a fragment of the document, so using that I created `dangerously-set-html-content`.
 
@@ -49,6 +49,7 @@ function Example {
     </script>
 
   `
+
   return (
     <InnerHTML html={html} />
   )
