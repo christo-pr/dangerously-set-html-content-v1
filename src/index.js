@@ -6,8 +6,9 @@ function DangerouslySetHtmlContent(props) {
 
   useEffect(() => {
     const slotHtml = document.createRange().createContextualFragment(html) // Create a 'tiny' document and parse the html string
-    divRef.current.appendChild(slotHtml) // Append it so it can be executed
-  }, [])
+    divRef.current.innerHTML = '' // Clear the container
+    divRef.current.appendChild(slotHtml) // Append the new content
+  }, [html])
 
 
   return (
