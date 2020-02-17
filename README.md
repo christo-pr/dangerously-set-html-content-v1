@@ -6,24 +6,30 @@ dangerously-set-html-content
 </h1>
 </center>
 
-> Render raw html on your own risk!
+> Render raw html at your own risk!
 
 [![NPM](https://img.shields.io/npm/v/dangerously-set-html-content.svg)](https://www.npmjs.com/package/dangerously-set-html-content) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 
 ## Context
 
-React already have `dangerouslySetInnerHtml` prop to render raw html, and works pretty much well for almost all the cases, but what if your html has some `scripts` tags inside??
+Here's a blog post that explain more in detail:
+
+- [Render dangerous content with React](https://dev.to/christo_pr/render-dangerous-content-with-react-2j7j)
+
+## TL;DR
+
+React uses `dangerouslySetInnerHtml` prop to render raw html, and works pretty much well for almost all the cases, but what if your html has some `scripts` tags inside??
 
 When you use `dangerouslySetInnerHtml` on a component, internally react is using the `innerHtml` property of the node to set the content, which for [safety purposes](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML#Security_considerations) doesn't execute any javascript.
 
-At the beginning this behavior seemed very odd to me (I mean the prop name contains the word `dangerously`, and also you need to pass an object with a `__html` propery, looks like they really encourage us not to use it), although has totally sense now, still doesn't solve my issue
+This behavior seemed very odd to me (I mean the prop name contains the word `dangerously`, and also you need to pass an object with a `__html` propery, which is on purpose, so you really know what you doing), although has totally sense now, still doesn't solve my issue
 
 After a little bit of search I found that the `document` has something called [Range](https://developer.mozilla.org/en-US/docs/Web/API/Range), this API let you create a fragment of the document, so using that I created `dangerously-set-html-content`.
 
 This React component renders html from a string, with the plus of executing all the js code that html contains!! 🎉
 
-🚨🚨 **USE IT BY YOUR OWN RISK** 🚨🚨
+🚨🚨 **USE IT AT YOUR OWN RISK** 🚨🚨
 
 ## Install
 
