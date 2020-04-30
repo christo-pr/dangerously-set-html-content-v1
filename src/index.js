@@ -12,7 +12,7 @@ function DangerouslySetHtmlContent(props) {
 
 
   return (
-    <div ref={divRef}></div>
+    <div {...props} ref={divRef}></div>
   )
 }
 
