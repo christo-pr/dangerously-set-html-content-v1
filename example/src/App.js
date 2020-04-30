@@ -19,7 +19,7 @@ export default function App() {
 
   return (
     <div>
-      <InnerHTML html={content} />
+      <InnerHTML style={{color: "white", background: "red"}} html={content} />
       <button onClick={() => setContent(updatedHtml)}>Hit here to see magic!</button>
     </div>
   );
