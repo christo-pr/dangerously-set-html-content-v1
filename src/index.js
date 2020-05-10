@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 
 function DangerouslySetHtmlContent(props) {
-  const { html } = props
+  const { html, ...rest } = props
   const divRef = useRef(null)
 
   useEffect(() => {
@@ -12,7 +12,7 @@ function DangerouslySetHtmlContent(props) {
 
 
   return (
-    <div {...props} ref={divRef}></div>
+    <div {...rest} ref={divRef}></div>
   )
 }
 
