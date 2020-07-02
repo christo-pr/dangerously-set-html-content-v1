@@ -1,19 +1,18 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, forwardRef } from 'react'
 
-function DangerouslySetHtmlContent(props) {
+const DangerouslySetHtmlContent = forwardRef((props, ref) {
   const { html, ...rest } = props
-  const divRef = useRef(null)
 
   useEffect(() => {
     const slotHtml = document.createRange().createContextualFragment(html) // Create a 'tiny' document and parse the html string
-    divRef.current.innerHTML = '' // Clear the container
-    divRef.current.appendChild(slotHtml) // Append the new content
+    ref.current.innerHTML = '' // Clear the container
+    ref.current.appendChild(slotHtml) // Append the new content
   }, [html])
 
 
   return (
-    <div {...rest} ref={divRef}></div>
+    <div {...rest} ref={ref}></div>
   )
-}
+})
 
 export default DangerouslySetHtmlContent
