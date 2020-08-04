@@ -7,7 +7,6 @@
   "repository": "christo-pr/dangerously-set-html-content",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
-  "types": "index.d.ts",
   "jsnext:main": "dist/index.es.js",
   "keywords": [
     "reactjs",
@@ -65,6 +64,7 @@
     "rollup-plugin-url": "^1.4.0"
   },
   "files": [
-    "dist"
+    "dist",
+    "index.d.ts"
   ]
 }
